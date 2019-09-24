@@ -41,16 +41,18 @@ def get_class_permissions(dex, class_, db = db):
         
         for s in str_ids:
             uri = dex.get_string(s)
+            now_perms = None
             if uri.startswith('content://'):
                 content_uri_perms.update(db.ContentUriPerms.get(uri, [ ]))
                 now_perms = db.ContentUriPerms.get(uri, None)
             else:
                 intent_perms.update(db.IntentPerms.get(uri, [ ]))
+                if 'android.permission.RECEIVE_BOOT_COMPLETED' in db.IntentPerms.get(uri, [ ]):
+                    print('!!!!',method.name())
                 now_perms = db.IntentPerms.get(uri, None)
 
             if now_perms is not None:
                 for now_perm in now_perms:
-
                     if perm_class_map.get(now_perm, None) is None:
                         perm_class_map[now_perm] = set()
                     perm_class_map[now_perm].update([method.name()])
