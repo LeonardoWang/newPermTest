@@ -7,30 +7,41 @@ def get_class_permissions(dex, class_, db = db):
     str_ids = set()
     field_ids = set()
 
+    api_perms = set()
+    content_uri_perms = set()
+    intent_perms = set()
+    content_field_perms = set()
+
+    perm_api_map = {}
+    perm_class_map = {}
+
     for method in class_.methods():
+        method_ids = set()
+        str_ids = set()
+        field_ids = set()
         str_ids.update(method.get_const_string_ids())
         method_ids.update(method.get_invoked_method_ids())
         field_ids.update(method.get_read_field_ids())
 
-    api_perms = set()
-    for m in method_ids:
-        api = dex.get_method_name(m)
-        api_perms.update(db.ApiPerms.get(api, [ ]))
+    
+        for m in method_ids:
+            api = dex.get_method_name(m)
+            api_perms.update(db.ApiPerms.get(api, [ ]))
 
-    content_uri_perms = set()
-    intent_perms = set()
-    for s in str_ids:
-        uri = dex.get_string(s)
-        if uri.startswith('content://'):
-            content_uri_perms.update(db.ContentUriPerms.get(uri, [ ]))
-        else:
-            intent_perms.update(db.IntentPerms.get(uri, [ ]))
 
-    content_field_perms = set()
-    for f in field_ids:
-        field = dex.get_field_name(f)
-        for perm in db.ContentFieldPerms.get(field, [ ]):
-            content_field_perms.add(perm)
+        
+        for s in str_ids:
+            uri = dex.get_string(s)
+            if uri.startswith('content://'):
+                content_uri_perms.update(db.ContentUriPerms.get(uri, [ ]))
+            else:
+                intent_perms.update(db.IntentPerms.get(uri, [ ]))
+
+        
+        for f in field_ids:
+            field = dex.get_field_name(f)
+            for perm in db.ContentFieldPerms.get(field, [ ]):
+                content_field_perms.add(perm)
 
     return set(list(api_perms) + list(content_uri_perms) + list(content_field_perms) + list(intent_perms))
 

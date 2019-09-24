@@ -29,12 +29,6 @@ def get_class_permissions(dex, class_):
             now_perms = _field_perms.get(f.split('-')[0], None)
             if now_perms is not None:
                 for now_perm in now_perms:
-                    '''
-                    if perm_api_map.get(now_perm, None) is None:
-                        perm_api_map[now_perm] = set()
-                    perm_api_map[now_perm].update([m])
-                    '''
-
                     if perm_class_map.get(now_perm, None) is None:
                         perm_class_map[now_perm] = set()
                     perm_class_map[now_perm].update([method.name()])
@@ -48,13 +42,8 @@ def get_class_permissions(dex, class_):
                         now_perms = _uri_perms[uri]
                         if now_perms is not None:
                             for now_perm in now_perms:
-                                '''
-                                if perm_api_map.get(now_perm, None) is None:
-                                    perm_api_map[now_perm] = set()
-                                perm_api_map[now_perm].update([m])
-                                '''
-
                                 if perm_class_map.get(now_perm, None) is None:
                                     perm_class_map[now_perm] = set()
                                 perm_class_map[now_perm].update([method.name()])
+                                
     return perms, perm_api_map, perm_class_map
