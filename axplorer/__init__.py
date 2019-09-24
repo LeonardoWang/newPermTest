@@ -12,15 +12,16 @@ def get_class_permissions(dex, class_):
     for method in class_.methods():
         for m in method.get_invoked_methods():
             perms.update(_api_perms.get(m, [ ]))
-            now_perm = _api_perms.get(m, None)
-            if now_perm is not None:
-                if perm_api_map.get(now_perm, None) is None:
-                    perm_api_map[now_perm] = set()
-                perm_api_map[now_perm].update(m)
+            now_perms = _api_perms.get(m, None)
+            if now_perms is not None:
+                for now_perm in now_perms
+                    if perm_api_map.get(now_perm, None) is None:
+                        perm_api_map[now_perm] = set()
+                    perm_api_map[now_perm].update(m)
 
-                if perm_class_map.get(now_perm, None) is None:
-                    perm_class_map[now_perm] = set()
-                perm_class_map.update(method.name())
+                    if perm_class_map.get(now_perm, None) is None:
+                        perm_class_map[now_perm] = set()
+                    perm_class_map.update(method.name())
 
         for f in method.get_read_fields():
             perms.update(_field_perms.get(f.split('-')[0], [ ]))
