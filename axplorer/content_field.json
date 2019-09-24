@@ -1,0 +1,111 @@
+{
+    "Lcom/android/bluetooth/opp/BluetoothOppProvider;": [
+        "android.permission.ACCESS_BLUETOOTH_SHARE"
+    ],
+    "Lcom/android/cellbroadcastreceiver/CellBroadcastContentProvider;": [
+        "android.permission.READ_CELL_BROADCASTS"
+    ],
+    "Lcom/android/cellbroadcastreceiver/CellBroadcastSearchIndexableProvider;": [
+        "android.permission.READ_SEARCH_INDEXABLES"
+    ],
+    "Lcom/android/crashreportprovider/CrashReportProvider;": [
+        "android.permission.READ_LOGS"
+    ],
+    "Lcom/android/email/provider/AttachmentProvider;": [
+        "com.android.email.permission.READ_ATTACHMENT"
+    ],
+    "Lcom/android/email/provider/EmailProvider;": [
+        "com.android.email.permission.ACCESS_PROVIDER",
+        "com.android.email.permission.ACCESS_PROVIDER"
+    ],
+    "Lcom/android/externalstorage/ExternalStorageProvider;": [
+        "android.permission.MANAGE_DOCUMENTS"
+    ],
+    "Lcom/android/gallery3d/filtershow/provider/SharedImageProvider;": [
+        "com.android.gallery3d.filtershow.permission.READ",
+        "com.android.gallery3d.filtershow.permission.WRITE"
+    ],
+    "Lcom/android/gallery3d/provider/GalleryProvider;": [
+        "com.android.gallery3d.permission.GALLERY_PROVIDER"
+    ],
+    "Lcom/android/launcher2/LauncherProvider;": [
+        "com.android.launcher.permission.READ_SETTINGS",
+        "com.android.launcher.permission.WRITE_SETTINGS"
+    ],
+    "Lcom/android/launcher3/LauncherProvider;": [
+        "com.android.launcher3.permission.READ_SETTINGS",
+        "com.android.launcher3.permission.WRITE_SETTINGS"
+    ],
+    "Lcom/android/mtp/MtpDocumentsProvider;": [
+        "android.permission.MANAGE_DOCUMENTS"
+    ],
+    "Lcom/android/phone/IccProvider;": [
+        "android.permission.READ_CONTACTS",
+        "android.permission.WRITE_CONTACTS"
+    ],
+    "Lcom/android/phone/PhoneSearchIndexablesProvider;": [
+        "android.permission.READ_SEARCH_INDEXABLES"
+    ],
+    "Lcom/android/providers/calendar/CalendarProvider2;": [
+        "android.permission.READ_CALENDAR",
+        "android.permission.WRITE_CALENDAR"
+    ],
+    "Lcom/android/providers/contacts/CallLogProvider;": [
+        "android.permission.READ_CALL_LOG",
+        "android.permission.WRITE_CALL_LOG"
+    ],
+    "Lcom/android/providers/contacts/ContactsProvider2;": [
+        "android.permission.GLOBAL_SEARCH",
+        "android.permission.GLOBAL_SEARCH",
+        "android.permission.GLOBAL_SEARCH",
+        "android.permission.GLOBAL_SEARCH",
+        "android.permission.GLOBAL_SEARCH",
+        "android.permission.GLOBAL_SEARCH",
+        "android.permission.READ_CONTACTS",
+        "android.permission.READ_CONTACTS",
+        "android.permission.WRITE_CONTACTS",
+        "android.permission.WRITE_CONTACTS"
+    ],
+    "Lcom/android/providers/contacts/ShadowCallLogProvider;": [
+        "android.permission.MANAGE_USERS"
+    ],
+    "Lcom/android/providers/contacts/VoicemailContentProvider;": [
+        "com.android.voicemail.permission.ADD_VOICEMAIL"
+    ],
+    "Lcom/android/providers/downloads/DownloadProvider;": [
+        "android.permission.ACCESS_ALL_DOWNLOADS",
+        "android.permission.INTERNET",
+        "android.permission.INTERNET"
+    ],
+    "Lcom/android/providers/downloads/DownloadStorageProvider;": [
+        "android.permission.MANAGE_DOCUMENTS"
+    ],
+    "Lcom/android/providers/media/MediaDocumentsProvider;": [
+        "android.permission.MANAGE_DOCUMENTS"
+    ],
+    "Lcom/android/providers/media/MediaProvider;": [
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE"
+    ],
+    "Lcom/android/providers/telephony/HbpcdLookupProvider;": [
+        "android.permission.MODIFY_PHONE_STATE"
+    ],
+    "Lcom/android/providers/telephony/MmsProvider;": [
+        "android.permission.READ_SMS"
+    ],
+    "Lcom/android/providers/telephony/MmsSmsProvider;": [
+        "android.permission.READ_SMS"
+    ],
+    "Lcom/android/providers/telephony/SmsProvider;": [
+        "android.permission.READ_SMS"
+    ],
+    "Lcom/android/providers/tv/TvProvider;": [
+        "com.android.providers.tv.permission.WRITE_EPG_DATA"
+    ],
+    "Lcom/android/service/ims/presence/EABProvider;": [
+        "com.android.rcs.eab.permission.READ_WRITE_EAB"
+    ],
+    "Lcom/android/settings/search/SettingsSearchIndexablesProvider;": [
+        "android.permission.READ_SEARCH_INDEXABLES"
+    ]
+}

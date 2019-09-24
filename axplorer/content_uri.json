@@ -1,0 +1,115 @@
+{
+    "content://android.media.tv": [
+        "com.android.providers.tv.permission.WRITE_EPG_DATA"
+    ],
+    "content://call_log": [
+        "android.permission.READ_CALL_LOG",
+        "android.permission.WRITE_CALL_LOG"
+    ],
+    "content://call_log_shadow": [
+        "android.permission.MANAGE_USERS"
+    ],
+    "content://cellbroadcasts": [
+        "android.permission.READ_CELL_BROADCASTS"
+    ],
+    "content://com.android.bluetooth.opp": [
+        "android.permission.ACCESS_BLUETOOTH_SHARE"
+    ],
+    "content://com.android.calendar": [
+        "android.permission.READ_CALENDAR",
+        "android.permission.WRITE_CALENDAR"
+    ],
+    "content://com.android.cellbroadcastreceiver": [
+        "android.permission.READ_SEARCH_INDEXABLES"
+    ],
+    "content://com.android.contacts": [
+        "android.permission.GLOBAL_SEARCH",
+        "android.permission.GLOBAL_SEARCH",
+        "android.permission.GLOBAL_SEARCH",
+        "android.permission.READ_CONTACTS",
+        "android.permission.WRITE_CONTACTS"
+    ],
+    "content://com.android.crashreportprovider": [
+        "android.permission.READ_LOGS"
+    ],
+    "content://com.android.email.attachmentprovider": [
+        "com.android.email.permission.READ_ATTACHMENT"
+    ],
+    "content://com.android.email.notifier": [
+        "com.android.email.permission.ACCESS_PROVIDER"
+    ],
+    "content://com.android.email.provider": [
+        "com.android.email.permission.ACCESS_PROVIDER"
+    ],
+    "content://com.android.externalstorage.documents": [
+        "android.permission.MANAGE_DOCUMENTS"
+    ],
+    "content://com.android.gallery3d.filtershow.provider.SharedImageProvider": [
+        "com.android.gallery3d.filtershow.permission.READ",
+        "com.android.gallery3d.filtershow.permission.WRITE"
+    ],
+    "content://com.android.gallery3d.provider": [
+        "com.android.gallery3d.permission.GALLERY_PROVIDER"
+    ],
+    "content://com.android.launcher2.settings": [
+        "com.android.launcher.permission.READ_SETTINGS",
+        "com.android.launcher.permission.WRITE_SETTINGS"
+    ],
+    "content://com.android.launcher3.settings": [
+        "com.android.launcher3.permission.READ_SETTINGS",
+        "com.android.launcher3.permission.WRITE_SETTINGS"
+    ],
+    "content://com.android.mtp.documents": [
+        "android.permission.MANAGE_DOCUMENTS"
+    ],
+    "content://com.android.phone": [
+        "android.permission.READ_SEARCH_INDEXABLES"
+    ],
+    "content://com.android.providers.downloads.documents": [
+        "android.permission.MANAGE_DOCUMENTS"
+    ],
+    "content://com.android.providers.media.documents": [
+        "android.permission.MANAGE_DOCUMENTS"
+    ],
+    "content://com.android.rcs.eab": [
+        "com.android.rcs.eab.permission.READ_WRITE_EAB"
+    ],
+    "content://com.android.settings": [
+        "android.permission.READ_SEARCH_INDEXABLES"
+    ],
+    "content://com.android.voicemail": [
+        "com.android.voicemail.permission.ADD_VOICEMAIL"
+    ],
+    "content://contacts": [
+        "android.permission.GLOBAL_SEARCH",
+        "android.permission.GLOBAL_SEARCH",
+        "android.permission.GLOBAL_SEARCH",
+        "android.permission.READ_CONTACTS",
+        "android.permission.WRITE_CONTACTS"
+    ],
+    "content://downloads": [
+        "android.permission.ACCESS_ALL_DOWNLOADS",
+        "android.permission.INTERNET",
+        "android.permission.INTERNET"
+    ],
+    "content://hbpcd_lookup": [
+        "android.permission.MODIFY_PHONE_STATE"
+    ],
+    "content://icc": [
+        "android.permission.READ_CONTACTS",
+        "android.permission.WRITE_CONTACTS"
+    ],
+    "content://media": [
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE"
+    ],
+    "content://mms": [
+        "android.permission.READ_SMS"
+    ],
+    "content://mms-sms": [
+        "android.permission.READ_SMS"
+    ],
+    "content://sms": [
+        "android.permission.READ_SMS"
+    ]
+}
