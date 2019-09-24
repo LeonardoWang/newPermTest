@@ -65,7 +65,15 @@ def get_class_permissions(dex, class_, db = db):
                         perm_class_map[perm] = set()
                 perm_class_map[perm].update([method.name()])
 
-    return set(list(api_perms) + list(content_uri_perms) + list(content_field_perms) + list(intent_perms)),perm_api_map, perm_class_map
+    if 'android.permission.RECEIVE_BOOT_COMPLETED' in api_perms:
+        print('api_perms')
+    if 'android.permission.RECEIVE_BOOT_COMPLETED' in content_uri_perms:
+        print('content_uri_perms')
+    if 'android.permission.RECEIVE_BOOT_COMPLETED' in content_field_perms:
+        print('content_field_perms')
+    if 'android.permission.RECEIVE_BOOT_COMPLETED' in intent_perms:
+        print('intent_perms')
+    return set(list(api_perms) + list(content_uri_perms) + list(content_field_perms) + list(intent_perms)), perm_api_map, perm_class_map
 
 
 def get_manifest_permissions(apk_path, db = db):
