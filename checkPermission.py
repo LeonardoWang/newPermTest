@@ -16,6 +16,10 @@ perm_map = {}
 lib_map = []
 library_list = []
 find_list = []
+
+api_maps = {}
+class_map = {}
+
 def get_permission(content):
     perm_list = content.split('\n')
     for perm_value in perm_list:
@@ -51,7 +55,7 @@ def get_dex_file(file_path):
     for dex in list(Apk(file_path)):
         for class_ in dex.classes:
             pscout_perms = pscout.get_class_permissions(dex, class_)
-            axplorer_perms = axplorer.get_class_permissions(dex, class_)
+            axplorer_perms, axplorer_api_maps, axplorer_class_map = axplorer.get_class_permissions(dex, class_)
 
    
             #print(class_.name())
@@ -76,6 +80,17 @@ def get_dex_file(file_path):
             		usage_perm_list.append(perm)
             	if tag and perm in total_permission_list and perm not in lib_perm_list:
             		lib_perm_list.append(perm)
+
+            for perm in axplorer_api_maps:
+                if api_maps.get(perm, None) is None:
+                    api_maps[perm] = set()
+                api_maps.update(axplorer_api_maps[perm])
+
+            for perm in axplorer_class_map:
+                if class_map.get(perm, None) is None:
+                    class_map[perm] = set()
+                class_map.update(axplorer_class_map[perm])
+            
     for perm in total_permission_list:
         if perm not in usage_perm_list:
             over_perm_list.append(perm)
@@ -88,6 +103,13 @@ def get_dex_file(file_path):
     print('library permissiom usage',lib_perm_list)
     print('')
     print('overprilege permission', over_perm_list)
+
+    for perm in usage_perm_list:
+        print(perm)
+        for i in api_maps[perm]:
+            print('api call ',i)
+        for i in class_map[perm]:
+            print('class call ',i)
 
 get_method_perm('./tools/framework-map-25.txt')
 get_method_perm('./tools/sdk-map-25.txt')
