@@ -118,9 +118,9 @@ def get_dex_file(file_path):
         print(perm)
         if api_maps.get(perm, None) is not None:
             for i in api_maps[perm]:
-                print('api call ',i)
+                print('     api call ',i)
             for i in class_map[perm]:
-                print('method call ',i)
+                print('     method call ',i)
 
 get_method_perm('./tools/framework-map-25.txt')
 get_method_perm('./tools/sdk-map-25.txt')
