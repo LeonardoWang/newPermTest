@@ -14,7 +14,7 @@ def get_class_permissions(dex, class_):
             perms.update(_api_perms.get(m, [ ]))
             now_perms = _api_perms.get(m, None)
             if now_perms is not None:
-                for now_perm in now_perms
+                for now_perm in now_perms:
                     if perm_api_map.get(now_perm, None) is None:
                         perm_api_map[now_perm] = set()
                     perm_api_map[now_perm].update(m)
