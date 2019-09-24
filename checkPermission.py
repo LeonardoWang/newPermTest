@@ -54,8 +54,8 @@ def get_dex_file(file_path):
     get_permission(permission_content)
     for dex in list(Apk(file_path)):
         for class_ in dex.classes:
-            pscout_perms = pscout.get_class_permissions(dex, class_)
-            axplorer_perms, axplorer_api_maps, axplorer_class_map = axplorer.get_class_permissions(dex, class_)
+            pscout_perms, pscout_api_maps, pscout_class_maps = pscout.get_class_permissions(dex, class_)
+            axplorer_perms, axplorer_api_maps, axplorer_class_maps = axplorer.get_class_permissions(dex, class_)
 
    
             #print(class_.name())
@@ -86,10 +86,20 @@ def get_dex_file(file_path):
                     api_maps[perm] = set()
                 api_maps[perm].update(axplorer_api_maps[perm])
 
-            for perm in axplorer_class_map:
+            for perm in pscout_api_maps:
+                if api_maps.get(perm, None) is None:
+                    api_maps[perm] = set()
+                api_maps[perm].update(pscout_api_maps[perm])
+
+            for perm in axplorer_class_maps:
                 if class_map.get(perm, None) is None:
                     class_map[perm] = set()
-                class_map[perm].update(axplorer_class_map[perm])
+                class_map[perm].update(axplorer_class_maps[perm])
+
+            for perm in pscout_class_maps:
+                if class_map.get(perm, None) is None:
+                    class_map[perm] = set()
+                class_map[perm].update(pscout_class_maps[perm])
 
     for perm in total_permission_list:
         if perm not in usage_perm_list:
