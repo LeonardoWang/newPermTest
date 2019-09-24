@@ -17,11 +17,11 @@ def get_class_permissions(dex, class_):
                 for now_perm in now_perms:
                     if perm_api_map.get(now_perm, None) is None:
                         perm_api_map[now_perm] = set()
-                    perm_api_map[now_perm].update(m)
+                    perm_api_map[now_perm].update([m])
 
                     if perm_class_map.get(now_perm, None) is None:
                         perm_class_map[now_perm] = set()
-                    perm_class_map[now_perm].update(method.name())
+                    perm_class_map[now_perm].update([method.name()])
 
         for f in method.get_read_fields():
             perms.update(_field_perms.get(f.split('-')[0], [ ]))
