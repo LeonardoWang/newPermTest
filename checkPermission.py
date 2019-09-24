@@ -84,13 +84,13 @@ def get_dex_file(file_path):
             for perm in axplorer_api_maps:
                 if api_maps.get(perm, None) is None:
                     api_maps[perm] = set()
-                api_maps.update(axplorer_api_maps[perm])
+                api_maps[perm].update(axplorer_api_maps[perm])
 
             for perm in axplorer_class_map:
                 if class_map.get(perm, None) is None:
                     class_map[perm] = set()
-                class_map.update(axplorer_class_map[perm])
-            
+                class_map[perm].update(axplorer_class_map[perm])
+
     for perm in total_permission_list:
         if perm not in usage_perm_list:
             over_perm_list.append(perm)
