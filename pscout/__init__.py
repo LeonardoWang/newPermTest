@@ -56,6 +56,7 @@ def get_class_permissions(dex, class_, db = db):
                         if perm_class_map.get(now_perm, None) is None:
                             perm_class_map[now_perm] = set()
                         perm_class_map[now_perm].update([method.name()])
+                        print(perm_class_map[now_perm])
 
             if now_perms is not None:
                 for now_perm in now_perms:
