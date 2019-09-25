@@ -47,16 +47,7 @@ def get_class_permissions(dex, class_, db = db):
                 now_perms = db.ContentUriPerms.get(uri, None)
             else:
                 intent_perms.update(db.IntentPerms.get(uri, [ ]))
-
                 now_perms = db.IntentPerms.get(uri, None)
-                if 'android.permission.RECEIVE_BOOT_COMPLETED' in db.IntentPerms.get(uri, [ ]):
-                    print('!!!!',method.name())
-                    print(now_perms)
-                    for now_perm in now_perms:
-                        if perm_class_map.get(now_perm, None) is None:
-                            perm_class_map[now_perm] = set()
-                        perm_class_map[now_perm].update([method.name()])
-                        print(perm_class_map[now_perm])
 
             if now_perms is not None:
                 for now_perm in now_perms:
@@ -74,14 +65,6 @@ def get_class_permissions(dex, class_, db = db):
                         perm_class_map[perm] = set()
                 perm_class_map[perm].update([method.name()])
 
-    if 'android.permission.RECEIVE_BOOT_COMPLETED' in api_perms:
-        print('api_perms')
-    if 'android.permission.RECEIVE_BOOT_COMPLETED' in content_uri_perms:
-        print('content_uri_perms')
-    if 'android.permission.RECEIVE_BOOT_COMPLETED' in content_field_perms:
-        print('content_field_perms')
-    if 'android.permission.RECEIVE_BOOT_COMPLETED' in intent_perms:
-        print('intent_perms')
     return set(list(api_perms) + list(content_uri_perms) + list(content_field_perms) + list(intent_perms)), perm_api_map, perm_class_map
 
 

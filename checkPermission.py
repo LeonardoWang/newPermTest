@@ -69,11 +69,6 @@ def get_dex_file(file_path):
                         library_list.append(lib)
                     break
                     new_class_name = tmp_class_name.replace('/','.')
-            
-            if 'android.permission.RECEIVE_BOOT_COMPLETED' in pscout_perms:
-                print('!!!pscout')
-            if 'android.permission.RECEIVE_BOOT_COMPLETED' in axplorer_perms:
-                print('!!!axplorer')
 
             for perm in pscout_perms:
             	if perm in total_permission_list and perm not in usage_perm_list:
@@ -124,6 +119,7 @@ def get_dex_file(file_path):
         if api_maps.get(perm, None) is not None:
             for i in api_maps[perm]:
                 print('     api call ',i)
+        if class_map.get(perm, None) is not None:
             for i in class_map[perm]:
                 print('     method call ',i)
 
