@@ -145,5 +145,5 @@ get_library_map('./tools/libs.txt')
 
 if len(sys.argv)<=2:
     get_dex_file(sys.argv[1])
-else
+else:
     get_dex_file(sys.argv[1], sys.argv[2])
