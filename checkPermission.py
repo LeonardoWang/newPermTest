@@ -1,6 +1,6 @@
 import pscout
 import axplorer
-import cate_perm_count
+import perm_count
 
 from common import Apk
 
@@ -105,7 +105,7 @@ def get_dex_file(file_path, Cate = None):
     for perm in total_permission_list:
         if perm not in usage_perm_list:
             over_perm_list.append(perm)
-    calculator = cate_perm_count.Calculator()
+    calculator = perm_count.Calculator()
     perm_percent = calculator.get_perm_percent()
     perm_cate_count = calculator.get_perm_cate_count()
     print('total_permission_list',total_permission_list)
