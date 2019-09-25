@@ -119,15 +119,16 @@ def get_dex_file(file_path, Cate = None):
     print('overprilege permission', over_perm_list)
     for perm in usage_perm_list:
         now_permcent = 0
-        if Cate is None:
-            perm_id = calculator.get_perm_id(str(perm))
-            if perm_id != -1:
-                now_permcent = perm_percent.get(str(perm_id), 0)
-                print(now_permcent)
+        perm_id = calculator.get_perm_id(str(perm))
+        if perm_id == -1:
+            now_permcent = 'Non-sensitive permission'
         else:
-            perm_id = calculator.get_perm_id(str(perm))
-            if perm_id != -1:
-                now_cate_list = perm_cate_count.get(str(perm_id), {})
+            perm_id = str(perm_id)
+
+            if Cate is None:
+                now_permcent = perm_percent.get(perm_id, 0)
+            else:
+                now_cate_list = perm_cate_count.get(perm_id, {})
                 now_permcent = now_cate_list.get(Cate, 0)
 
         print(perm, now_permcent)
