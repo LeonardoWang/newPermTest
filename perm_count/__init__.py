@@ -37,20 +37,20 @@ class Calculator():
         self.load_perm_cate_count()
 
     def load_cate_count(self):
-        f = open('cate_count')
+        f = open('perm_count/ate_count')
         for lines in f.readlines():
             now_line = lines.strip().split(' ')
             self.cate_count[now_line[0]] = int(now_line[1])
 
     def load_perm_count(self):
-        f = open('perm_count')
+        f = open('perm_count/perm_count')
         for lines in f.readlines():
             now_line = lines.strip().split(' ')
             self.perm_count[now_line[0]] = int(now_line[1])
             self.perm_percent[now_line[0]] = int(now_line[1])/self.app_total
 
     def load_perm_cate_count(self):
-        f = open('perm_cate_count')
+        f = open('perm_count/perm_cate_count')
         for lines in f.readlines():
             now_line = lines.strip().split(' ')
             temp_list = self.perm_cate_count.get(now_line[0],{})
