@@ -124,12 +124,12 @@ def get_dex_file(file_path, Cate = None):
             perm_id = calculator.get_perm_id(perm)
             if perm_id != -1:
                 now_permcent = perm_percent.get(perm_id, 0)
-        else
+        else:
             perm_id = calculator.get_perm_id(perm)
             if perm_id != -1:
                 now_cate_list = perm_cate_count.get(perm_id, {})
                 now_permcent = now_cate_list.get(Cate, 0)
-        
+
         print(perm, now_permcent)
         if api_maps.get(perm, None) is not None:
             for i in api_maps[perm]:
