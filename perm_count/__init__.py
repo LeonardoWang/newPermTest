@@ -37,7 +37,7 @@ class Calculator():
         self.load_perm_cate_count()
 
     def load_cate_count(self):
-        f = open('perm_count/ate_count')
+        f = open('perm_count/cate_count')
         for lines in f.readlines():
             now_line = lines.strip().split(' ')
             self.cate_count[now_line[0]] = int(now_line[1])
