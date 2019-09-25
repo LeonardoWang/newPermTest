@@ -47,7 +47,7 @@ class Calculator():
         for lines in f.readlines():
             now_line = lines.strip().split(' ')
             self.perm_count[now_line[0]] = int(now_line[1])
-            self.perm_percent[now_line[0]] = int(now_line[1])/self.app_total
+            self.perm_percent[now_line[0]] = round(int(now_line[1])/self.app_total,4)
 
     def load_perm_cate_count(self):
         f = open('perm_count/perm_cate_count')
@@ -59,7 +59,7 @@ class Calculator():
             if temp_number == 0:
                 temp_list[now_line[1]] = 0
             else:
-                temp_list[now_line[1]] = round(int(now_line[2])/temp_number*100,2)/100
+                temp_list[now_line[1]] = round(int(now_line[2])/temp_number,4)
             self.perm_cate_count[now_line[0]] = temp_list
     def get_perm_id(self, perm):
         return self.Perm_list.get(perm, -1)
@@ -82,3 +82,4 @@ class Calculator():
                 print(perm, self.perm_cate_count[perm].get(cate, 0))
             else:
                 print(perm, self.perm_percent[perm])
+
