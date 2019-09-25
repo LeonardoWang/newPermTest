@@ -47,9 +47,11 @@ def get_class_permissions(dex, class_, db = db):
                 now_perms = db.ContentUriPerms.get(uri, None)
             else:
                 intent_perms.update(db.IntentPerms.get(uri, [ ]))
+
+                now_perms = db.IntentPerms.get(uri, None)
                 if 'android.permission.RECEIVE_BOOT_COMPLETED' in db.IntentPerms.get(uri, [ ]):
                     print('!!!!',method.name())
-                now_perms = db.IntentPerms.get(uri, None)
+                    print(now_perms)
 
             if now_perms is not None:
                 for now_perm in now_perms:
