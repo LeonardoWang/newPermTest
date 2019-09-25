@@ -145,6 +145,8 @@ def get_dex_file(file_path, Cate = None):
             if class_map.get(perm, None) is not None:
                 for i in class_map[perm]:
                     print('     method call ',i)
+    print('')
+    calculator.print_perm_cate_list(Cate)
 
 get_method_perm('./tools/framework-map-25.txt')
 get_method_perm('./tools/sdk-map-25.txt')
