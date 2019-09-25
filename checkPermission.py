@@ -1,5 +1,6 @@
 import pscout
 import axplorer
+import cate_perm_count
 
 from common import Apk
 
@@ -48,7 +49,7 @@ def get_library_map(file_path):
         now_line = lines.strip()[1:]
         lib_map.append(now_line)
 
-def get_dex_file(file_path):
+def get_dex_file(file_path, Cate = None):
     permission_content = os.popen('./tools/aapt dump permissions {}'.format(file_path)).read()
     #print(permission_content)
     get_permission(permission_content)
@@ -104,6 +105,9 @@ def get_dex_file(file_path):
     for perm in total_permission_list:
         if perm not in usage_perm_list:
             over_perm_list.append(perm)
+    calculator = cate_perm_count.Calculator()
+    perm_percent = calculator.get_perm_percent()
+    perm_cate_count = calculator.get_perm_cate_count()
     print('total_permission_list',total_permission_list)
     print('')
     print('true use permission',usage_perm_list)
@@ -115,7 +119,18 @@ def get_dex_file(file_path):
     print('overprilege permission', over_perm_list)
 
     for perm in usage_perm_list:
-        print(perm)
+        now_permcent = 0
+        if Cate is None:
+            perm_id = calculator.get_perm_id(perm)
+            if perm_id != -1:
+                now_permcent = perm_percent.get(perm_id, 0)
+        else
+            perm_id = calculator.get_perm_id(perm)
+            if perm_id != -1:
+                now_cate_list = perm_cate_count.get(perm_id, {})
+                now_permcent = now_cate_list.get(Cate, 0)
+        
+        print(perm, now_permcent)
         if api_maps.get(perm, None) is not None:
             for i in api_maps[perm]:
                 print('     api call ',i)
@@ -128,4 +143,7 @@ get_method_perm('./tools/sdk-map-25.txt')
 get_library_map('./tools/libs.txt')
 #print(lib_map)
 
-get_dex_file(sys.argv[1])
+if len(sys.argv)<=2:
+    get_dex_file(sys.argv[1])
+else
+    get_dex_file(sys.argv[1], sys.argv[2])
