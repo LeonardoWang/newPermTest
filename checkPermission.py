@@ -116,28 +116,35 @@ def get_dex_file(file_path, Cate = None):
     print('')
     print('library permissiom usage',lib_perm_list)
     print('')
-    print('overprilege permission', over_perm_list)
-    for perm in usage_perm_list:
-        now_permcent = 0
-        perm_id = calculator.get_perm_id(str(perm))
-        if perm_id == -1:
-            now_permcent = 'Non-sensitive permission'
-        else:
-            perm_id = str(perm_id)
-
-            if Cate is None:
-                now_permcent = perm_percent.get(perm_id, 0)
+    for perm in total_permission_list:
+    #print('overprilege permission', over_perm_list)
+        if perm in over_perm_list:
+            print(perm, 'overprilege')
+            continue
+        if perm in usage_perm_list:
+            now_permcent = 0
+            tag = ''
+            perm_id = calculator.get_perm_id(str(perm))
+            if perm_id == -1:
+                now_permcent = 'Non-sensitive permission'
             else:
-                now_cate_list = perm_cate_count.get(perm_id, {})
-                now_permcent = now_cate_list.get(Cate, 0)
+                perm_id = str(perm_id)
 
-        print(perm, now_permcent)
-        if api_maps.get(perm, None) is not None:
-            for i in api_maps[perm]:
-                print('     api call ',i)
-        if class_map.get(perm, None) is not None:
-            for i in class_map[perm]:
-                print('     method call ',i)
+                if Cate is None:
+                    now_permcent = perm_percent.get(perm_id, 0)
+                else:
+                    now_cate_list = perm_cate_count.get(perm_id, {})
+                    now_permcent = now_cate_list.get(Cate, 0)
+                if now_permcent <= 0.05:
+                    tag = 'Permission abuse'
+
+            print(perm, now_permcent, tag)
+            if api_maps.get(perm, None) is not None:
+                for i in api_maps[perm]:
+                    print('     api call ',i)
+            if class_map.get(perm, None) is not None:
+                for i in class_map[perm]:
+                    print('     method call ',i)
 
 get_method_perm('./tools/framework-map-25.txt')
 get_method_perm('./tools/sdk-map-25.txt')
