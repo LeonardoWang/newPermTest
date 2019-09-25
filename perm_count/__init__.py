@@ -78,8 +78,9 @@ class Calculator():
 
     def print_perm_cate_list(self, cate):
         for perm in self.Perm_list:
+            perm_id = str(self.Perm_list[perm])
             if cate is not None:
-                print(perm, self.perm_cate_count[perm].get(cate, 0))
+                print(perm, self.perm_cate_count[perm_id].get(cate, 0))
             else:
-                print(perm, self.perm_percent[perm])
+                print(perm, self.perm_percent[perm_id])
 

@@ -146,6 +146,7 @@ def get_dex_file(file_path, Cate = None):
                 for i in class_map[perm]:
                     print('     method call ',i)
     print('')
+    print('Category Permission Usage')
     calculator.print_perm_cate_list(Cate)
 
 get_method_perm('./tools/framework-map-25.txt')
